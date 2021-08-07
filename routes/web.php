@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatMessagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ChatMessagesController::class, 'getChatRoomPage']);
+Route::get('/messages', [ChatMessagesController::class, 'getMessages']);
+Route::post('/messages', [ChatMessagesController::class, 'postNewMessage']);
